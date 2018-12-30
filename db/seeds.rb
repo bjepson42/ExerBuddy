@@ -13,4 +13,4 @@ activity1 = Activity.create(name: "running")
 
 location1 = Location.create(name: "golds gym")
 
-event1 = Event.create(name:"event1", user_id: user1.id, friend_user_id: user2.id, activity_id: activity1.id, location_id: location1.)
+event1 = Event.create(name:"event1", user_id: user1.id, friend_user_id: user2.id, activity_id: activity1.id, location_id: location1.id)

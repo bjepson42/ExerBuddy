@@ -3,7 +3,7 @@ class Event < ApplicationRecord
  belongs_to :activity
 
 
- belongs_to :originator_user, class_name: "User"
- belongs_to :acceptor_user, class_name: "User"
+ belongs_to :user
+ belongs_to :friend_user, class_name: "User"
 
 end
