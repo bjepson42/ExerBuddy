@@ -16,10 +16,31 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class ="field">
+    <%= form.label "My Name" %>
+    <%= form.collection_select :user_id, User.all, :id, :name %>
+  </div>
+
+  <div class ="field">
+    <%= form.label "Activity" %>
+    <%= form.collection_select :activity_id, Activity.all, :id, :name %>
+  </div>
+
+  <div class ="field">
+    <%= form.label "Location" %>
+    <%= form.collection_select :location_id, Location.all, :id, :name %>
+  </div>
+
+  <div class ="field">
+    <%= form.label "Friend Name" %>
+    <%= form.collection_select :friend_user_id, User.all, :id, :name %>
+  </div>
+
   <div class="field">
     <%= form.label :date %>
     <%= form.datetime_select :date %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

@@ -1,8 +1,20 @@
+
+<h1>My Event!</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @event.activity.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location.name + " - " + @event.location.address %>
 </p>
 
 <p>
