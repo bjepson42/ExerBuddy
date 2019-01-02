@@ -1,51 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="users">User </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="activities">Activities</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="events">Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="locations">Locations</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-
-<!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-  <div class="container">
-    <button class="navbar-toggler" data-toggle ="collapse" data-target ="#mainNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <div class="navbar-nav"
-        <a class="nav-item nav-link" href="app/views/users/index.html.erb">User</a>
-        <a class="nav-item nav-link active" href="app/views/activities/index.html.erb">Activities</a>
-        <a class="nav-item nav-link" href="app/views/events/index.html.erb">Events</a>
-        <a class="nav-item nav-link" href="app/views/locations/index.html.erb">Locations</a>
-      </div>
-    </div>
-  </div>
-</nav> -->
+<%= render 'navform', activity: @activity %><br><br><br>
 
 <h1>Activities</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
