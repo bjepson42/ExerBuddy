@@ -5,7 +5,9 @@
   </button>
 
   <!-- Navbar links -->
+
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <% if current_user %>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" <%= link_to "Profile", user_path(current_user) %></a>
@@ -20,7 +22,9 @@
         <a class="nav-link" <%= link_to "Locations", locations_path %></a>
       </li>
     </ul>
+    <% end %>
   </div>
+
   <div>
     <% if current_user %>
       Logged in as <%= current_user.username %>.
