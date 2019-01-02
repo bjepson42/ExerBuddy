@@ -17,8 +17,7 @@
   </div>
 
   <div class ="field">
-    <%= form.label "My Name" %>
-    <%= form.collection_select :user_id, User.all, :id, :name %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div class ="field">

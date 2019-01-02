@@ -1,6 +1,3 @@
-<%= render 'navform', location: @location %><br><br><br>
-
-
 <p id="notice"><%= notice %></p>
 <%= render 'navbar', location: @location %>
 <p>
@@ -12,6 +9,17 @@
   <strong>Address:</strong>
   <%= @location.address %>
 </p>
+
+<p>
+  <strong>Available Activities:</strong>
+  <%= @location.address %>
+</p>
+
+<p>
+  <strong>Available Events:</strong>
+  <%= @location.address %>
+</p>
+
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

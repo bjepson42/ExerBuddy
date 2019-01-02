@@ -9,12 +9,12 @@
 
 <p>
   <strong>Activity:</strong>
-  <%= @event.activity.name %>
+  <%= @event.activity.name %> with <%= link_to @event.user.name, @event.user %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @event.location.name + " - " + @event.location.address %>
+  <%= link_to @event.location.name, @event.location %> -  <%= @event.location.address %>
 </p>
 
 <p>
