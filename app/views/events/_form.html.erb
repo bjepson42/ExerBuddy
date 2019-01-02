@@ -31,14 +31,13 @@
     <%= form.collection_select :location_id, Location.all, :id, :name %>
   </div>
 
-  <div class ="field">
-    <%= form.label "Friend Name" %>
-    <%= form.collection_select :friend_user_id, User.all, :id, :name %>
-  </div>
-
   <div class="field">
     <%= form.label :date %>
     <%= form.datetime_select :date %>
+  </div>
+
+  <div>
+    <% form.text_field :event_paired, value: "f" %>
   </div>
 
 

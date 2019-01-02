@@ -4,6 +4,12 @@
   <strong>Name:</strong>
   <%= @activity.name %>
 </p>
+<p>
+  <strong>Available Activities:</strong>
+  <% @activity.events.each do |event|%>
+    <br><%= link_to event.name, event_path(event) %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>
