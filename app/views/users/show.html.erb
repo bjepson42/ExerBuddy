@@ -32,9 +32,11 @@
 </p>
 
 <table class="table table-hover">
+  <strong>My Active Events:</strong>
   <thead>
     <tr>
       <th>Name</th>
+      <th>Buddy</th>
       <th>Date</th>
       <th>Activity</th>
       <th>Location</th>
@@ -47,16 +49,26 @@
     <% @user.events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
+        <%if event.friend_user %>
+          <td><%= link_to event.friend_user.username, user_path(event.friend_user) %></td>
+        <% else %>
+          <td><%= "N/A" %></td>
+        <% end %>
         <td><%= event.date %></td>
         <td><%= event.activity.name %></td>
         <td><%= event.location.name %></td>
         <td><%= event.location.address %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.username == event.user.username %>
+          <td><%= link_to 'Show', event %></td>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td><%= link_to 'Sign Up For This Event!', edit_event_path(event) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Edit', edit_user_path(@user) %>
+<% if @user.username == current_user.username %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>

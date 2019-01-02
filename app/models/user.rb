@@ -8,5 +8,5 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
-  validates :age, :numericality => { greater_than_or_equal_to: 18, less_than: 100, message: "You must be older than 18." }
+  validates :age, :numericality => { greater_than_or_equal_to: 18, less_than: 150, message: "You must be between 18 and 150 years old." }
 end
