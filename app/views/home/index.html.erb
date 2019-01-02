@@ -1,0 +1,13 @@
+<%= render 'navbar', location: @home %>
+
+<p id=”notice”><%= notice %></p>
+<h1>Welcome to ExerBuddy!</h1>
+<p>Find a buddy to exercise with!</p>
+
+<% if current_user %>
+  Logged in as <%= current_user.username %>.<br>
+  <%= link_to 'Log Out', logout_path %>
+<% else %>
+  <%= link_to 'Sign Up', signup_path %> or
+  <%= link_to 'Log In', login_path %>
+<% end %>

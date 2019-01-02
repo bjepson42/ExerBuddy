@@ -1,7 +1,10 @@
-<%= render 'navform', user: @user %><br><br><br>
-
-
+<%= render 'navbar', location: @user %>
 <p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User Name:</strong>
+  <%= @user.username %>
+</p>
 
 <p>
   <strong>Name:</strong>
