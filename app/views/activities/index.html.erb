@@ -1,6 +1,5 @@
 
 <p id="notice"><%= notice %></p>
-<%= render 'navbar', location: @activity %><br><br>
 
 <h1>Activities</h1>
 
@@ -8,6 +7,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Number of Available Events</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
     <% @activities.each do |activity| %>
       <tr>
         <td><%= link_to activity.name, activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= activity.events.count %></td>
       </tr>
     <% end %>
   </tbody>
