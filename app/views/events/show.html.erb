@@ -26,5 +26,5 @@
   <%= @event.description %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(@event) %> |
+<%= link_to '<button type="button">Back</button>'.html_safe, events_path %>

@@ -24,11 +24,11 @@
           <td><%= link_to event.location.name, event.location %></td>
           <td><%= event.location.address %></td>
           <% if current_user.username == event.user.username %>
-            <td><%= link_to 'Show', event %></td>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '<button type="button">Show</button>'.html_safe, event %></td>
+            <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(event) %></td>
+            <td><%= link_to '<button type="button">Delete</button>'.html_safe, event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% else %>
-            <td><%= link_to 'Sign Up For This Event!', edit_event_path(event) %></td>
+            <td><%= link_to '<button type="button">Sign Up For This Event!</button>'.html_safe, edit_event_path(event) %></td>
           <% end %>
         </tr>
       <% end %>
