@@ -15,6 +15,10 @@
 </p>
 
 <p>
+    <%= image_tag google_map(center: @location.address) %>
+</p>
+
+<p>
   <strong>Available Activities At This Location:</strong>
   <ul>
     <% @location.events.select("DISTINCT(ACTIVITY_ID)").each do |event| %>
