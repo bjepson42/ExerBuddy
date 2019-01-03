@@ -10,7 +10,16 @@
 </p>
 
 <p>
-  <strong>Available Activities:</strong>
+  <strong>Description:</strong>
+  <%= @location.description %>
+</p>
+
+<p>
+    <%= image_tag google_map(center: @location.address) %>
+</p>
+
+<p>
+  <strong>Available Activities At This Location:</strong>
   <ul>
     <% @location.events.select("DISTINCT(ACTIVITY_ID)").each do |event| %>
       <li><%= link_to event.activity.name, event.activity %></li>
@@ -19,7 +28,7 @@
 </p>
 
 <table class="table table-hover">
-  <strong>Available Events:</strong>
+  <strong>Currently Available Events:</strong>
   <thead>
     <tr>
       <th>Name</th>
