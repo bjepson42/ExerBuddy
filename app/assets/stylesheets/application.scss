@@ -10,7 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- 
+
  */
 // Custom bootstrap variables must be set of imported *before* bootstrap.
  @import "bootstrap";
+
+ footer {
+  position: relative;
+  right: 0;
+  bottom: 0%;
+  position: fixed;
+  left: 0;
+  padding: 1rem;
+  background-color: #0f0f0f;
+  text-align: center;
+  color:#fff;
+  text-align: center;
+ }
