@@ -1,8 +1,17 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-
+  #helper_method :event_belongs_to_active_user, :event_filled
   # GET /events
   # GET /events.json
+  # def event_belongs_to_active_user(event)
+  #   current_user.id == event.user_id
+  # end
+  #
+  # def event_filled(event)
+  #   event.user_id && event.friend_user_id
+  # end
+
+
   def index
     @events = Event.all
   end
@@ -69,6 +78,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:description, :name, :date, :user_id, :location_id, :activity_id)
+      params.require(:event).permit(:description, :name, :date, :user_id, :friend_user_id, :location_id, :activity_id)
     end
 end

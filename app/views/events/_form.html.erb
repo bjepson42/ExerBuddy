@@ -1,3 +1,4 @@
+
 <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +12,93 @@
     </div>
   <% end %>
 
+<% if !event_belongs_to_active_user(event) %>
+
+  <p>
+    <strong>Join <%= event.user.name %>'s activity</strong>
+  </p>
+
+  <div class="field">
+    <%= form.label "Event Name: " %>
+    <%= event.name %>
+  </div>
+
+  <div class ="field">
+    <%= form.hidden_field :friend_user_id, value: current_user.id %>
+  </div>
+
+  <div class ="field">
+    <%= form.label "Activity: " %>
+    <%= event.activity.name %>
+  </div>
+
+  <div class ="field">
+    <%= form.label "Location: " %>
+    <%= event.location.name %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Date: " %>
+    <%= event.date %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Event Notes: " %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Join this event"%>
+  </div>
+
+<% elsif %>
+<p>
+  <strong>Leave <%= event.user.name %>'s activity</strong>
+</p>
+
+<div class="field">
+  <%= form.label "Event Name: " %>
+  <%= event.name %>
+</div>
+
+<div class ="field">
+  <%= form.hidden_field :friend_user_id, value: nil %>
+</div>
+
+<div class ="field">
+  <%= form.label "Activity: " %>
+  <%= event.activity.name %>
+</div>
+
+<div class ="field">
+  <%= form.label "Location: " %>
+  <%= event.location.name %>
+</div>
+
+<div class="field">
+  <%= form.label "Date: " %>
+  <%= event.date %>
+</div>
+
+<div class="field">
+  <%= form.label "Event Notes: " %>
+  <%= form.text_area :description %>
+</div>
+
+<div class="actions">
+  <%= form.submit "Leave this event"%>
+</div>
+
+<% else %>
+  <p>
+    <strong>Edit my activity</strong>
+  </p>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
 
   <div class ="field">
     <%= form.hidden_field :user_id, value: current_user.id %>
@@ -43,4 +127,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+<% end %>
 <% end %>

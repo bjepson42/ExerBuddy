@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
 
+
+  def sign_up_for_event(event)
+    event.friend_user_id = current_user.id
+    event.save
+    redirect_to events_path
+  end
   # GET /users
   # GET /users.json
   def index
