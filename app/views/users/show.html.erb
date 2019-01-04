@@ -1,91 +1,97 @@
 
-<p id="notice"><%= notice %></p>
-<%= stylesheet_link_tag "users" %>
-
-<% if @user.image.attached? %>
-    <strong>Image:</strong>
-    <br>
-    <%= image_tag @user.image %>
-<% end %>
-
-<div>
-  <p>
-    <strong>User Name:</strong>
-    <%= @user.username %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @user.name %>
-  </p>
-
-  <p>
-    <strong>Age:</strong>
-    <%= @user.age %>
-  </p>
-
-  <p>
-    <strong>Gender:</strong>
-    <%= @user.gender %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= @user.phone %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-
-  <p>
-    <strong>About Me:</strong>
-    <%= @user.comment %>
-  </p>
-
-</div>
-
-<table class="table table-hover">
-  <strong>My Active Events:</strong>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Buddy</th>
-      <th>Date</th>
-      <th>Activity</th>
-      <th>Location</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user.events.each do |event| %>
-      <tr>
-        <td><%= link_to event.name, event %></td>
-        <%if event.friend_user %>
-          <td><%= link_to event.friend_user.username, user_path(event.friend_user) %></td>
-        <% else %>
-          <td><%= "N/A" %></td>
-        <% end %>
-        <td><%= time_format(event.date) %></td>
-        <td><%= link_to event.activity.name, event.activity %></td>
-        <td><%= link_to event.location.name, event.location %></td>
-        <td><%= event.location.address %></td>
-        <% if current_user.username == event.user.username %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% elsif event.friend_user %>
-          <td></td>
-
-        <% else %>
-          <td><%= link_to 'Sign Up For This Event!', edit_event_path %>
-        <% end %>
-      </tr>
+  <p id="notice"><%= notice %></p>
+  <%= stylesheet_link_tag "users" %>
+<div class="row">
+  <div class="col-lg-4">
+    <% if @user.image.attached? %>
+        <br>
+        <%= image_tag @user.image %>
     <% end %>
-  </tbody>
-</table>
-<% if @user.username == current_user.username %>
-  <%= link_to '<button type="button">Edit</button>'.html_safe, edit_user_path(@user) %>
-<% end %>
+  </div>
+  <div class="col-lg-4">
+    <div>
+      <p>
+        <h2><%= @user.username %></h2>
+      </p>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @user.name %>
+      </p>
+
+      <p>
+        <strong>Age:</strong>
+        <%= @user.age %>
+      </p>
+
+      <p>
+        <strong>Gender:</strong>
+        <%= @user.gender %>
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        <%= @user.phone %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <p>
+      <strong>About Me:</strong>
+      <%= @user.comment %>
+    </p>
+
+  </div>
+</div>
+<div>
+  <% if @user.username == current_user.username %>
+    <%= link_to '<button type="button">Edit</button>'.html_safe, edit_user_path(@user) %>
+  <% end %>
+</div>
+<div>
+  <table class="table table-hover">
+    <strong>My Active Events:</strong>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Buddy</th>
+        <th>Date</th>
+        <th>Activity</th>
+        <th>Location</th>
+        <th>Address</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.events.each do |event| %>
+        <tr>
+          <td><%= link_to event.name, event %></td>
+          <%if event.friend_user %>
+            <td><%= link_to event.friend_user.username, user_path(event.friend_user) %></td>
+          <% else %>
+            <td><%= "N/A" %></td>
+          <% end %>
+          <td><%= time_format(event.date) %></td>
+          <td><%= link_to event.activity.name, event.activity %></td>
+          <td><%= link_to event.location.name, event.location %></td>
+          <td><%= event.location.address %></td>
+          <% if current_user.username == event.user.username %>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% elsif event.friend_user %>
+            <td></td>
+
+          <% else %>
+            <td><%= link_to 'Sign Up For This Event!', edit_event_path %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

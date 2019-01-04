@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :google_map, :google_map_dynamic, :sign_up_for_event, :leave_event, :event_belongs_to_active_user, :event_filled, :active_user_is_buddy, :time_format
+  helper_method :current_user, :google_map, :google_map_dynamic, :event_belongs_to_active_user, :event_filled, :active_user_is_buddy, :time_format
   before_action :require_login
   def current_user
     if session[:user_id]
@@ -28,28 +28,14 @@ class ApplicationController < ActionController::Base
 
   def google_map(center)
     "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17&markers=color:red%7Clabel:%7C#{center}&key=AIzaSyA3inP1j57jSJe-CsU8Nbo2-boaUjiifns"
-    ##api key AIzaSyA3inP1j57jSJe-CsU8Nbo2-boaUjiifns
+    ## rails credentials:edit google_maps_api_key: AIzaSyA3inP1j57jSJe-CsU8Nbo2-boaUjiifns
+    ## Rails.application.credentials.google_maps_api_key
   end
 
   def google_map_dynamic(center)
     "https://www.google.com/maps/embed/v1/place?key=AIzaSyA3inP1j57jSJe-CsU8Nbo2-boaUjiifns&q=#{center}"
   end
 
-  def sign_up_for_event(event)
-    byebug
-    event.friend_user_id = current_user.id
-    event.save
-    redirect_to events_path
-  end
-
-  # def sign_up_for_event(event)
-  #   byebug
-  # end
-
-  def leave_event(event)
-    event.friend_user_id = nil
-    event.save
-  end
 
 private
 
