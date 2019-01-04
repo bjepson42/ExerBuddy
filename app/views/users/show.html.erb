@@ -2,12 +2,11 @@
   <p id="notice"><%= notice %></p>
   <%= stylesheet_link_tag "users" %>
 <div class="row">
-  <div class="col-lg-4">
-    <% if @user.image.attached? %>
-        <br>
-        <%= image_tag @user.image %>
-    <% end %>
-  </div>
+  <% if @user.image.attached? %>
+    <div class="col-lg-4">
+      <%= image_tag @user.image %>
+    </div>
+  <% end %>
   <div class="col-lg-4">
     <div>
       <p>
@@ -41,16 +40,19 @@
     </div>
   </div>
   <div class="col-lg-4">
+    <% if @user.comment %>
     <p>
       <strong>About Me:</strong>
       <%= @user.comment %>
     </p>
+    <% end%>
 
   </div>
 </div>
 <div>
   <% if @user.username == current_user.username %>
     <%= link_to '<button type="button">Edit</button>'.html_safe, edit_user_path(@user) %>
+    <br><br>
   <% end %>
 </div>
 <div>

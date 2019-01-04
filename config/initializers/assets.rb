@@ -21,3 +21,7 @@ Rails.application.config.assets.precompile += %w( activities.css )
 Rails.application.config.assets.precompile += %w( events.css )
 
 Rails.application.config.assets.precompile += %w( locations.css )
+
+Rails.application.config.assets.precompile += %w( sessions.css )
+
+Rails.application.config.assets.precompile += %w( usersform.css )
