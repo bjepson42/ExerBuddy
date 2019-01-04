@@ -1,31 +1,34 @@
 <div>
   <%= stylesheet_link_tag "events" %>
-<h1>My Event!</h1>
+<h1><%= @event.name %></h1>
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
 
-<p>
-  <strong>Activity:</strong>
-  <%= @event.activity.name %> with <%= link_to @event.user.name, @event.user %>
-</p>
+<div class="row">
+  <div class="col-lg-4">
+    <p>
+        <%= image_tag google_map(center: @event.location.address) %>
+    </p>
+  </div>
+  <div class="col-lg-4">
+    <p>
+      <%= @event.activity.name %> with <%= link_to @event.user.name, @event.user %>
+    </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= link_to @event.location.name, @event.location %> -  <%= @event.location.address %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= time_format(@event.date) %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+    <p>
+      <%= link_to @event.location.name, @event.location %>
+    </p>
+    <p>
+    <%= @event.location.address %>
+    </p>
+    <p>
+      <%= time_format(@event.date) %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @event.description %>
+    </p>
+  </div>
+</div>
 <% if current_user.id == @event.user_id %>
   <%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(@event) %> |
 <% end %>

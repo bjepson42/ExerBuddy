@@ -16,7 +16,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= link_to location.name %></td>
+        <td><%= link_to location.name, location %></td>
         <td><%= location.address %></td>
         <td><%= location.events.count %></td>
       </tr>

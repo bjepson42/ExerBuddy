@@ -1,15 +1,13 @@
-<br>
 
 <p id="notice"><%= notice %></p>
 <div>
   <%= stylesheet_link_tag "activities" %>
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @activity.name %>
-</p>
+</h1>
 <p>
   <table class="table table-hover">
-  <strong>Available Activities:</strong>
+  <strong>Available <%=@activity.name %> Activities:</strong>
     <thead>
       <tr>
         <th>Name</th>
