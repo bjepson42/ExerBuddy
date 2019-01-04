@@ -1,4 +1,8 @@
+<br>
+
 <p id="notice"><%= notice %></p>
+<div>
+  <%= stylesheet_link_tag "activities" %>
 <p>
   <strong>Name:</strong>
   <%= @activity.name %>
@@ -33,5 +37,6 @@
     </tbody>
   </table>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_activity_path(@activity) %> |
+<%= link_to '<button type="button">Back</button>'.html_safe, activities_path %>
+<div>

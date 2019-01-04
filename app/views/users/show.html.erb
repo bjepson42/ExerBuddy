@@ -1,48 +1,50 @@
 
 <p id="notice"><%= notice %></p>
-
+<%= stylesheet_link_tag "users" %>
 
 <% if @user.image.attached? %>
-  <p>
     <strong>Image:</strong>
     <br>
     <%= image_tag @user.image %>
-  </p>
 <% end %>
 
-  <strong>User Name:</strong>
-  <%= @user.username %>
-</p>
+<div>
+  <p>
+    <strong>User Name:</strong>
+    <%= @user.username %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+  <p>
+    <strong>Age:</strong>
+    <%= @user.age %>
+  </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+  <p>
+    <strong>Gender:</strong>
+    <%= @user.gender %>
+  </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+  <p>
+    <strong>Phone:</strong>
+    <%= @user.phone %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>About Me:</strong>
-  <%= @user.comment %>
-</p>
+  <p>
+    <strong>About Me:</strong>
+    <%= @user.comment %>
+  </p>
+
+</div>
 
 <table class="table table-hover">
   <strong>My Active Events:</strong>

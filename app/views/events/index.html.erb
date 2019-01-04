@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<br><%= link_to 'Create New Event', new_event_path %><br>
+<br><%= link_to '<button type="button">Create New Event</button>'.html_safe, new_event_path %><br>
 
 <h1>Available Events</h1>
 
@@ -26,7 +26,7 @@
         <% if event.friend_user %>
           <td></td>
         <% else %>
-          <td><%= link_to 'Sign Up For This Event!', edit_event_path(event) %>
+          <td><%= link_to '<button type="button">Sign Up For This Event!</button>'.html_safe, edit_event_path(event) %>
         <% end %>
       </tr>
     <% end %>
@@ -64,8 +64,8 @@
         <td><%= link_to event.activity.name, event.activity %></td>
         <td><%= link_to event.location.name, event.location %></td>
         <td><%= event.location.address %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(event) %></td>
+        <td><%= link_to '<button type="button">Delete</button>'.html_safe, event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
