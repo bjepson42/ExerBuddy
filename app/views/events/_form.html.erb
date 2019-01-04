@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<% if !event_belongs_to_active_user(event) %>
+<% if !event_belongs_to_active_user(event) && !active_user_is_buddy(event) %>
 
   <p>
     <strong>Join <%= event.user.name %>'s activity</strong>
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label "Date: " %>
-    <%= event.date %>
+    <%= time_format(event.date) %>
   </div>
 
   <div class="field">
@@ -51,7 +51,7 @@
     <%= form.submit "Join this event"%>
   </div>
 
-<% elsif %>
+<% elsif active_user_is_buddy(event) %>
 <p>
   <strong>Leave <%= event.user.name %>'s activity</strong>
 </p>
@@ -77,7 +77,7 @@
 
 <div class="field">
   <%= form.label "Date: " %>
-  <%= event.date %>
+  <%= time_format(event.date) %>
 </div>
 
 <div class="field">

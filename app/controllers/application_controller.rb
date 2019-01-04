@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :google_map, :google_map_dynamic, :sign_up_for_event, :leave_event, :event_belongs_to_active_user, :event_filled
+  helper_method :current_user, :google_map, :google_map_dynamic, :sign_up_for_event, :leave_event, :event_belongs_to_active_user, :event_filled, :active_user_is_buddy, :time_format
   before_action :require_login
   def current_user
     if session[:user_id]
@@ -9,8 +9,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def time_format(datetime)
+    datetime.strftime("%b %e, %y %l:%m %p")
+  end
+
   def event_belongs_to_active_user(event)
     current_user.id == event.user_id
+  end
+
+  def active_user_is_buddy(event)
+    current_user.id == event.friend_user_id
   end
 
   def event_filled(event)

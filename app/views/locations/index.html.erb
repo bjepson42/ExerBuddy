@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+
 <h1>Locations</h1>
 
 <table class="table table-hover">
@@ -14,14 +15,12 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= link_to location.name, location %></td>
+        <td><%= link_to location.name %></td>
         <td><%= location.address %></td>
-        <td><% location.events.each do |event| %>
-                <%= link_to (event.name + " - " + event.activity.name), event_path(event) %><br>
-            <% end %></td>
+        <td><%= location.events.count %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to '<button type="button">New Location</button>'.html_safe, new_location_path %>
+<%= link_to 'New Location', new_location_path %>

@@ -20,7 +20,7 @@
       <% @activity.events.each do |event| %>
         <tr>
           <td><%= link_to event.name, event %></td>
-          <td><%= event.date %></td>
+          <td><%= time_format(event.date) %></td>
           <td><%= link_to event.location.name, event.location %></td>
           <td><%= event.location.address %></td>
           <% if current_user.username == event.user.username %>
