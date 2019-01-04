@@ -1,5 +1,7 @@
 <h1>New Location</h1>
 
 <%= render 'form', location: @location %>
-
+<%= stylesheet_link_tag "locations" %>
+<div>
 <%= link_to '<button type="button">Back</button>'.html_safe, locations_path %>
+</div>

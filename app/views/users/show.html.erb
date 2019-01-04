@@ -80,7 +80,7 @@
           <td></td>
 
         <% else %>
-          <td><%= link_to 'Sign Up For This Event!', edit_event_path %>
+          <td><%= link_to '<button type="button">Sign Up For This Event!</button>'.html_safe, edit_event_path %>
         <% end %>
       </tr>
     <% end %>

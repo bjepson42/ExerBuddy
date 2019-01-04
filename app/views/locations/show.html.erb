@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<div>
+  <%= stylesheet_link_tag "locations" %>
 <p>
   <strong>Name:</strong>
   <%= @location.name %>
@@ -54,3 +56,4 @@
 
 <%= link_to '<button type="button">Edit</button>'.html_safe, edit_location_path(@location) %> |
 <%= link_to '<button type="button">Back</button>'.html_safe, locations_path %>
+</div>

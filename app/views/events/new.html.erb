@@ -1,3 +1,5 @@
+<div>
+  <%= stylesheet_link_tag "events" %>
 <%= form_with(model: @event, local: true) do |form| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -10,11 +12,12 @@
       </ul>
     </div>
   <% end %>
-
+</div>
+<div>
   <p>
     <strong>New Event</strong>
   </p>
-
+</div>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -49,5 +52,6 @@
     <%= form.submit %>
   </div>
 <% end %>
-
+<div>
 <%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+</div>
