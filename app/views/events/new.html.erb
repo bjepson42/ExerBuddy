@@ -1,56 +1,64 @@
-<div>
-  <%= stylesheet_link_tag "events" %>
-<%= form_with(model: @event, local: true) do |form| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+<%= stylesheet_link_tag "events" %>
 <div class="jumbotron">
   <h1>
-    <strong>New Event</strong>
+    <strong>Add New Event</strong>
   </h1>
+  <%= form_with(model: @event, local: true) do |form| %>
+    <% if @event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+        <ul>
+        <% @event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= form.label :name %>
+    </div>
+    <div>
+      <%= form.text_field :name %>
+    </div>
 
 
-  <div class ="field">
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  </div>
+    <div class ="field">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div>
+    </div>
 
-  <div class ="field">
-    <%= form.label "Activity" %>
-    <%= form.collection_select :activity_id, Activity.all, :id, :name %>
-  </div>
+    <div class ="field">
+      <%= form.label "Activity" %>
+    </div>
+    <div id="event_select">
+      <%= form.collection_select :activity_id, Activity.all, :id, :name %>
+    </div>
 
-  <div class ="field">
-    <%= form.label "Location" %>
-    <%= form.collection_select :location_id, Location.all, :id, :name %>
-  </div>
+    <div class ="field">
+      <%= form.label "Location" %>
+    </div>
+    <div>
+      <%= form.collection_select :location_id, Location.all, :id, :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
-  </div>
+    <div class="field">
+      <%= form.label :date %>
+    </div>
+    <div>
+      <%= form.datetime_select :date, discard_seconds: true, use_short_month: true %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-<%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+    <div class="field">
+      <%= form.label :description %>
+    </div>
+    <div>
+      <%= form.text_area :description %>
+    </div>
+    <div></div>
+    <div class="actions">
+      <%= form.submit%>
+    </div>
+  <% end %>
 </div>

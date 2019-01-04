@@ -11,8 +11,17 @@
 //   background-size: 100%;
 //   color: #f8f9fa;
 // }
+body {
+  background-image: image-url('marathon.jpg');
+  background-size: 100%;
+  color: #343a40;
+}
 
-div {
+.jumbotron {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.col-lg-4 {
   text-align: left;
 }
 

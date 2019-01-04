@@ -20,11 +20,28 @@ body {
 }
 
 .jumbotron {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 form {
     display: grid;
     grid-template-columns: 200px 1fr;
     grid-gap: 5px;
+}
+
+label {
+  text-align: right;
+}
+
+.event_select {
+  width: 250px;
+}
+
+input, textarea {
+  text-align: left;
+  width: 250px;
+}
+
+textarea {
+  height: 150px;
 }
