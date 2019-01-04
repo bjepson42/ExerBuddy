@@ -1,27 +1,28 @@
 <p id="notice"><%= notice %></p>
-<h1>Locations</h1>
-<%= link_to '<button type="button">Create New Location</button>'.html_safe, new_location_path %>
+<div class="jumbotron">
+  <h1>Locations</h1>
+  <%= link_to '<button type="button">Create New Location</button>'.html_safe, new_location_path %>
 
 
-<%= stylesheet_link_tag "locations" %>
-<div>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Available Events</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @locations.each do |location| %>
+  <%= stylesheet_link_tag "locations" %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= link_to location.name, location %></td>
-        <td><%= location.address %></td>
-        <td><%= location.events.count %></td>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Available Events</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <td><%= link_to location.name, location %></td>
+          <td><%= location.address %></td>
+          <td><%= location.events.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

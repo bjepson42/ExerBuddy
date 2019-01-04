@@ -1,6 +1,7 @@
 
   <p id="notice"><%= notice %></p>
   <%= stylesheet_link_tag "users" %>
+<div class="jumbotron">
 <div class="row">
   <% if @user.image.attached? %>
     <div class="col-lg-4">
@@ -84,16 +85,17 @@
           <td><%= link_to event.location.name, event.location %></td>
           <td><%= event.location.address %></td>
           <% if current_user.username == event.user.username %>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(event) %></td>
+            <td><%= link_to '<button type="button">Delete</button>'.html_safe, event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% elsif event.friend_user %>
             <td></td>
 
           <% else %>
-            <td><%= link_to 'Sign Up For This Event!', edit_event_path %>
+            <td><%= link_to '<button type="button">Sign Up For This Event!</button>'.html_safe, edit_event_path %>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
 </div>

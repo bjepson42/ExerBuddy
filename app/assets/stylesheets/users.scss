@@ -2,19 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// html{
-//   background: url(../images/user_tennis_background.jpg)
-// }
+body {
+  background-image: image-url('runners.jpg');
+  background-size: 100%;
+  color: #343a40;
+}
 
-// body {
-//   background-image: image-url('marathon.jpg');
-//   background-size: 100%;
-//   color: #f8f9fa;
-// }
+.jumbotron {
+  background: rgba(255, 255, 255, 0.5);
+}
 
 div {
   text-align: left;
+  padding-left: 25px;
+  padding-right: 25px;
 }
+
+h1 {
+  padding-top: 25px;
+  padding-left: 25px;
+}
+
 
 body  {
   margin: 25px;
