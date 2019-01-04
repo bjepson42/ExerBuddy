@@ -16,13 +16,56 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% @events.where(friend_user_id: nil).each do |event| %>
       <tr>
         <td><%= link_to event.name, event %></td>
         <td><%= event.date %></td>
         <td><%= link_to event.activity.name, event.activity %></td>
         <td><%= link_to event.location.name, event.location %></td>
         <td><%= event.location.address %></td>
+        <% if event.friend_user %>
+          <td></td>
+        <% else %>
+          <td><%= link_to 'Sign Up For This Event!', edit_event_path(event) %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>My Events</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Buddy</th>
+      <th>Date</th>
+      <th>Activity</th>
+      <th>Location</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.where(user_id: current_user.id).each do |event| %>
+      <tr>
+        <td><%= link_to event.name, event %></td>
+
+        <%if event.friend_user %>
+          <td><%= link_to event.friend_user.name, user_path(event.friend_user_id) %></td>
+        <% else %>
+          <td><%= "N/A" %></td>
+        <% end %>
+        <td><%= event.date %></td>
+        <td><%= link_to event.activity.name, event.activity %></td>
+        <td><%= link_to event.location.name, event.location %></td>
+        <td><%= event.location.address %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
