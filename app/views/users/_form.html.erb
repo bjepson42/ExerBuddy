@@ -11,57 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+<div class="row">
+  <div class="col-lg-6" id="left">
+      <div class="field">
+        <%= form.label :username %>
+      </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+      <div class="field">
+        <%= form.label :password %>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="field">
+        <%= form.label :password_confirmation %>
+      </div>
 
-  <div class="field">
-    <%= form.label "Age - 18-150" %>
-    <%= form.number_field :age %>
-  </div>
+      <div class="field">
+        <%= form.label :name %>
+      </div>
 
-  <div class="field">
-    <%= form.label "Gender" %>
-    <%= form.select :gender, ['Male', 'Female', 'Other']%>
-  </div>
+      <div class="field">
+        <%= form.label "Age - 18-150" %>
+      </div>
 
-  <div class="field">
-    <%= form.label "Phone (123-456-7890)" %>
-    <%= form.text_field :phone %>
-  </div>
+      <div class="field">
+        <%= form.label "Gender" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="field">
+        <%= form.label "Phone (123-456-7890)" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
+      <div class="field">
+        <%= form.label :email %>
+      </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
+      <div class="field">
+        <%= form.label :comment %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
+      <div class="field">
+        <%= form.label :image %>
+      </div>
   </div>
+  <div class="col-lg-6" id="right">
+    <div class="field">
+      <%= form.text_field :username %>
+    </div>
+
+    <div class="field">
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= form.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= form.select :gender, ['Male', 'Female', 'Other']%>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.text_area :comment %>
+    </div>
+
+    <div class="field">
+      <%= form.file_field :image %>
+    </div>
+  </div>
+</div>
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
