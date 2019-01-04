@@ -1,6 +1,7 @@
+<div>
+  <%= stylesheet_link_tag "events" %>
 <h1>My Event!</h1>
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @event.name %>
@@ -29,3 +30,4 @@
   <%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(@event) %> |
 <% end %>
 <%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
+</div>

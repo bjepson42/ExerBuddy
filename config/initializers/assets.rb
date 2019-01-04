@@ -17,3 +17,7 @@ Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( users.css )
 
 Rails.application.config.assets.precompile += %w( activities.css )
+
+Rails.application.config.assets.precompile += %w( events.css )
+
+Rails.application.config.assets.precompile += %w( locations.css )
