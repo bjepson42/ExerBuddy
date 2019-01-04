@@ -1,34 +1,39 @@
 <p id="notice"><%= notice %></p>
 <div class="jumbotron">
   <%= stylesheet_link_tag "locations" %>
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+  <h1>
+    <%= @location.name %>
+  </h1>
+<div class="row">
+  <div class="col-lg-4">
+    <p>
+        <%= image_tag google_map(center: @location.address) %>
+    </p>
+  </div>
+  <div class="col-lg-4">
 
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
+    <p>
+      <strong>Address:</strong>
+      <%= @location.address %>
+    </p>
 
-<p>
-    <%= image_tag google_map(center: @location.address) %>
-</p>
-
-<p>
-  <strong>Available Activities At This Location:</strong>
-  <ul>
-    <% @location.events.select("DISTINCT(ACTIVITY_ID)").each do |event| %>
-      <li><%= link_to event.activity.name, event.activity %></li>
-    <% end %>
-  </ul>
-</p>
-
+    <p>
+      <strong>Description:</strong>
+      <%= @location.description %>
+    </p>
+  </div>
+  <div class="col-lg-4">
+    <p>
+      <strong>Available Activities At This Location:</strong>
+      <ul>
+        <% @location.events.select("DISTINCT(ACTIVITY_ID)").each do |event| %>
+          <li><%= link_to event.activity.name, event.activity %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
 <table class="table table-hover">
   <strong>Currently Available Events:</strong>
   <thead>
