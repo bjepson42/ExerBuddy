@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// html{
-//   background: url(../images/user_tennis_background.jpg)
-// }
+body {
+  background-image: image-url('hiking.jpg');
+  background-size: 100%;
+  color: #343a40;
+}
 
-// body {
-//   background-image: image-url('marathon.jpg');
-//   background-size: 100%;
-//   color: #f8f9fa;
-// }
+.jumbotron {
+  background: rgba(255, 255, 255, 0.7);
+}
 
 
 div {
