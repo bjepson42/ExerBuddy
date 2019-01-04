@@ -27,14 +27,16 @@ h1 {
   text-align: center;
 }
 
-input {
-  width: 200px;
-}
-
-#left {
+label {
   text-align: right;
 }
-
-#right {
+input {
   text-align: left;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 5px;
+    
 }
