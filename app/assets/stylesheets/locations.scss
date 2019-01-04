@@ -25,3 +25,17 @@ body {
 .jumbotron {
   background: rgba(255, 255, 255, 0.7);
 }
+
+form {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 5px;
+}
+
+input, textarea {
+  width: 350px;
+}
+
+textarea {
+  height: 100px;
+}

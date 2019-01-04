@@ -1,3 +1,10 @@
+<% if !event_belongs_to_active_user(event) && !active_user_is_buddy(event) %>
+  <h1>Join <%= event.user.name %>'s activity</h1>
+<% elsif active_user_is_buddy(event) %>
+  <h1>Leave <%= event.user.name %>'s activity</h1>
+<% else %>
+  <h1>Edit my activity</h1>
+<% end %>
 
 <%= form_with(model: event, local: true) do |form| %>
   <% if event.errors.any? %>
@@ -13,13 +20,10 @@
   <% end %>
 
 <% if !event_belongs_to_active_user(event) && !active_user_is_buddy(event) %>
-
-  <p>
-    <strong>Join <%= event.user.name %>'s activity</strong>
-  </p>
-
   <div class="field">
     <%= form.label "Event Name: " %>
+  </div>
+  <div>
     <%= event.name %>
   </div>
 
@@ -29,21 +33,29 @@
 
   <div class ="field">
     <%= form.label "Activity: " %>
+  </div>
+  <div>
     <%= event.activity.name %>
   </div>
 
   <div class ="field">
     <%= form.label "Location: " %>
+  </div>
+  <div>
     <%= event.location.name %>
   </div>
 
   <div class="field">
     <%= form.label "Date: " %>
+  </div>
+  <div>
     <%= time_format(event.date) %>
   </div>
 
   <div class="field">
     <%= form.label "Event Notes: " %>
+  </div>
+  <div>
     <%= form.text_area :description %>
   </div>
 
@@ -52,12 +64,10 @@
   </div>
 
 <% elsif active_user_is_buddy(event) %>
-<p>
-  <strong>Leave <%= event.user.name %>'s activity</strong>
-</p>
-
 <div class="field">
   <%= form.label "Event Name: " %>
+</div>
+<div>
   <%= event.name %>
 </div>
 
@@ -67,21 +77,29 @@
 
 <div class ="field">
   <%= form.label "Activity: " %>
+</div>
+<div>
   <%= event.activity.name %>
 </div>
 
 <div class ="field">
   <%= form.label "Location: " %>
+</div>
+<div>
   <%= event.location.name %>
 </div>
 
 <div class="field">
   <%= form.label "Date: " %>
+</div>
+<div>
   <%= time_format(event.date) %>
 </div>
 
 <div class="field">
   <%= form.label "Event Notes: " %>
+</div>
+<div>
   <%= form.text_area :description %>
 </div>
 
@@ -90,12 +108,10 @@
 </div>
 
 <% else %>
-  <p>
-    <strong>Edit my activity</strong>
-  </p>
-
   <div class="field">
     <%= form.label :name %>
+  </div>
+  <div>
     <%= form.text_field :name %>
   </div>
 
@@ -103,24 +119,34 @@
   <div class ="field">
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
+  <div>
+  </div>
 
   <div class ="field">
     <%= form.label "Activity" %>
+  </div>
+  <div>
     <%= form.collection_select :activity_id, Activity.all, :id, :name %>
   </div>
 
   <div class ="field">
     <%= form.label "Location" %>
+  </div>
+  <div>
     <%= form.collection_select :location_id, Location.all, :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
+  </div>
+  <div>
     <%= form.datetime_select :date %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
+  </div>
+  <div>
     <%= form.text_area :description %>
   </div>
 
