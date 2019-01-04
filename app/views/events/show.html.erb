@@ -5,9 +5,10 @@
 
 <div class="row">
   <div class="col-lg-4">
-    <p>
-        <%= image_tag google_map(center: @event.location.address) %>
-    </p>
+    <iframe width="300" height="300" frameborder="0" style="border:0"
+     src=<%=google_map_dynamic(google_maps_address_converter(@event.location.address))%>
+     allowfullscreen>
+    </iframe>
   </div>
   <div class="col-lg-4">
     <p>
@@ -32,5 +33,4 @@
 <% if current_user.id == @event.user_id %>
   <%= link_to '<button type="button">Edit</button>'.html_safe, edit_event_path(@event) %> |
 <% end %>
-<%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
 </div>

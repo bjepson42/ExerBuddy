@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :google_map, :google_map_dynamic, :event_belongs_to_active_user, :event_filled, :active_user_is_buddy, :time_format
+  helper_method :current_user, :google_map, :google_map_dynamic, :event_belongs_to_active_user, :event_filled, :active_user_is_buddy, :time_format, :google_maps_address_converter
   before_action :require_login
+
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
     event.user_id && event.friend_user_id
   end
 
+  def google_maps_address_converter(address)
+    address_words = address.split(" ")
+    return address_words.join("+")
+  end
 
   def google_map(center)
     "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17&markers=color:red%7Clabel:%7C#{center}&key=AIzaSyA3inP1j57jSJe-CsU8Nbo2-boaUjiifns"
