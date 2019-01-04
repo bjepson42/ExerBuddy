@@ -54,7 +54,7 @@ header .banner-text {
 
 section {
  background: #2B2B2B;
- padding-top: 96px;
+ padding-top: 20px;
  padding-bottom: 66px;
  overflow: hidden;
  color:#fff;
@@ -64,7 +64,8 @@ section {
 footer {
  position: relative;
  right: 0;
- bottom: 0;
+ bottom: 0%;
+ position: fixed;
  left: 0;
  padding: 1rem;
  background-color: #0f0f0f;
