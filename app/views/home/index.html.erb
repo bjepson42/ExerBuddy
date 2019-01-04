@@ -18,18 +18,11 @@
     </div>
   </header>
   <section>
-  Whether for Fitness or Fun Begin Your Journey Here!<br>
-  <% if current_user %>
-  Logged in as <%= current_user.username %>.<br>
-  <%= link_to '<button type="button">Log Out</button>'.html_safe, logout_path %>
-  <% else %>
+  Whether for Fitness or Fun, Begin Your Journey Here!<br>
+  <% if !current_user %>
+  <br>
   <%= link_to '<button type="button">Sign Up</button>'.html_safe, signup_path %> or
   <%= link_to '<button type="button">Log In</button>'.html_safe, login_path %>
   <% end %>
   </section>
-  <!-- <footer>
-    <div>
-      &copy; Copyright Beau & Anuj
-    </div>
-  </footer> -->
 </body>
