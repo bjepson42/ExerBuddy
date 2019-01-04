@@ -14,9 +14,7 @@
 
 
 div {
-  padding-left: 25px;
-  padding-right: 25px;
-  text-align: center;
+
 }
 
 h1 {
@@ -25,6 +23,18 @@ h1 {
   text-align: center;
 }
 
+.actions {
+  text-align: center;
+}
+
 input {
   width: 200px;
+}
+
+#left {
+  text-align: right;
+}
+
+#right {
+  text-align: left;
 }
