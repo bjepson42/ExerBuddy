@@ -1,8 +1,8 @@
+<div class="jumbotron">
 <h1>Editing Activity</h1>
 <%= stylesheet_link_tag "activities" %>
 <%= render 'form', activity: @activity %>
 
-<div>
 <%= link_to '<button type="button">Show</button>'.html_safe, @activity %> |
 <%= link_to '<button type="button">Back</button>'.html_safe, activities_path %>
 </div>

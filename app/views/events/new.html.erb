@@ -13,11 +13,11 @@
     </div>
   <% end %>
 </div>
-<div>
-  <p>
+<div class="jumbotron">
+  <h1>
     <strong>New Event</strong>
-  </p>
-</div>
+  </h1>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -52,6 +52,5 @@
     <%= form.submit %>
   </div>
 <% end %>
-<div>
 <%= link_to '<button type="button">Back</button>'.html_safe, events_path %>
 </div>

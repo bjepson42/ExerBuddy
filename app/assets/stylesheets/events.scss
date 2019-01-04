@@ -12,3 +12,13 @@ h1 {
   padding-top: 25px;
   padding-left: 25px;
 }
+
+body {
+  background-image: image-url('marathon.jpg');
+  background-size: 100%;
+  color: #343a40;
+}
+
+.jumbotron {
+  background: rgba(255, 255, 255, 0.5);
+}

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div>
+<%= stylesheet_link_tag "events" %>
+<div class="jumbotron">
 <br><%= link_to '<button type="button">Create New Event</button>'.html_safe, new_event_path %><br>
 
-<%= stylesheet_link_tag "events" %>
 <h1>Available Events</h1>
 
 <table class="table table-hover">

@@ -1,8 +1,8 @@
+<div class="jumbotron">
 <h1>Editing Location</h1>
 <%= stylesheet_link_tag "locations" %>
 <%= render 'form', location: @location %>
 
-<div>
 <%= link_to '<button type="button">Show</button>'.html_safe, @location %> |
 <%= link_to '<button type="button">Back</button>'.html_safe, locations_path %>
 </div>
